@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { RegistroService } from './services/registro.service';
 
 @Component({
   selector: 'app-root',
@@ -9,21 +10,26 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AppComponent implements OnInit {
   title = 'formulario-Compras';
   licencia = [
-    { ItemName: 'Parametros reportables modo fluidos corporales' ,value: 'Parametros reportables modo fluidos corporales'},
+
+    { ItemName: 'Parametros reportables modo fluidos corporales', value: 'Parametros reportables modo fluidos corporales' },
     { ItemName: 'Parametros reportables canal reticulocitos', value: 'Parametros reportables canal reticulocitos' },
-    { ItemName: 'Parametros investigacion canal reticulocitos', value: 'Parametros investigacion canal reticulocitos' }
-];
-equipos = [
-  'QUIMICA',
-  'INMUNOLOGIA',
-  'HEMATOLOGIA',
-  'COAGULACION',
-  'GASOMETRIA',
-  'ELECTROLITOS',
-  'UROANALISIS',
-  'MICROBIOLOGIA',
-  'POC'
-];
+    { ItemName: 'Parametros investigacion canal reticulocitos', value: 'Parametros investigacion canal reticulocitos' },
+
+  ];
+  equipos = [
+
+    { ItemName: 'QUIMICA', value: 'QUIMICA' },
+    { ItemName: 'INMUNOLOGIA', value: 'INMUNOLOGIA' },
+    { ItemName: 'HEMATOLOGIA', value: 'HEMATOLOGIA' },
+    { ItemName: 'COAGULACION', value: 'COAGULACION' },
+    { ItemName: 'GASOMETRIA', value: 'GASOMETRIA' },
+    { ItemName: 'INSUMOS', value: 'INSUMOS' },
+    { ItemName: 'ELECTROLITOS', value: 'ELECTROLITOS' },
+    { ItemName: 'MICROBIOLOGIA', value: 'MICROBIOLOGIA' },
+    { ItemName: 'UROANALISIS', value: 'UROANALISIS' },
+    { ItemName: 'PRUEBAS RAPIDAS', value: 'PRUEBAS RAPIDAS' }
+
+  ];
 
 
   get institucion() {
@@ -58,25 +64,31 @@ equipos = [
     return this.RegistroForm?.get('terceraopcion')!.invalid && this.RegistroForm?.get('terceraopcion')!.touched
   }
 
-  get sistema() {//observacion
+  get sistema() {
     return this.RegistroForm?.get('sistema')!.invalid && this.RegistroForm?.get('sistema')!.touched
   }
-  get observacion() {//observacion
+  get observacion() {
     return this.RegistroForm?.get('observacion')!.invalid && this.RegistroForm?.get('observacion')!.touched
   }
-  get equipoprincipal() {//equipoprincipal
-    return this.RegistroForm.get('equipoprincipal') as FormArray;
+  get areas() {
+    return this.RegistroForm.get('areas') as FormArray;
   }
-  get licenciaEquiposHematologicos() {//equipoprincipal
+  get licenciaEquiposHematologicos() {//eqquimica
     return this.RegistroForm.get('licenciaEquiposHematologicos') as FormArray;
   }
-  ngOnInit(): void {
-   
+
+ 
   
+
+
+  ngOnInit(): void {
+
+
   }
 
   RegistroForm!: FormGroup;/* agregar codigo a lado de ItemName */
-  constructor(private fb: FormBuilder,) {
+  constructor(private fb: FormBuilder,
+    private registroServices : RegistroService) {
     this.crearformulario();
   }
 
@@ -84,62 +96,125 @@ equipos = [
     this.RegistroForm = this.fb.group({
       institucion: ['', [Validators.required]],
       codigo: ['', [Validators.required]],
-
       linkproceso: ['', [Validators.required]],
       tiempoconsumo: ['', [Validators.required]],
       determinacion: ['', [Validators.required]],
       presupuesto: ['', [Validators.required]],
       entregacarpeta: ['', [Validators.required]],
+      areas: this.fb.array([]),
       terceraopcion: ['', [Validators.required]],
       sistema: ['', [Validators.required]],
-      equipoprincipal:this.fb.array([])   ,
+      equipoprincipal: this.fb.group({
+        eqquimica: ['asd', [Validators.required]],
+        valquimica: ['', [Validators.required]],
+        eqinmunologia: ['', [Validators.required]],
+        valinmunologia: ['', [Validators.required]],
+        eqhematologia: ['', [Validators.required]],
+        valhematologia: ['', [Validators.required]],
+        eqcoagulacion: ['', [Validators.required]],
+        valcoagulacion: ['', [Validators.required]],
+
+        equipoquimica: ['', [Validators.required]],
+        valorquimica: ['', [Validators.required]],
+        eqgasometria: ['', [Validators.required]],
+        valgasometria: ['', [Validators.required]],
+        eqelectrolitros: ['', [Validators.required]],
+        valelectrolitros: ['', [Validators.required]],
+        equroanalisis: ['', [Validators.required]],
+        valuroanalisis: ['', [Validators.required]],
+
+        eqmicrobiologia: ['', [Validators.required]],
+        valmicrobiologia: ['', [Validators.required]],
+        eqpoc: ['', [Validators.required]],
+        valpoc: ['', [Validators.required]],
+      }),
+      equipobackup: this.fb.group({
+        bkquimica: ['', [Validators.required]],
+        valbkquimica: ['', [Validators.required]],
+        bkinmunologia: ['', [Validators.required]],
+        valbkinmunologia: ['', [Validators.required]],
+        bkhematologia: ['', [Validators.required]],
+        valbkhematologia: ['', [Validators.required]],
+        bkcoagulacion: ['', [Validators.required]],
+        valbkcoagulacion: ['', [Validators.required]],
+
+        bkuipoquimica: ['', [Validators.required]],
+        valbkorquimica: ['', [Validators.required]],
+        bkgasometria: ['', [Validators.required]],
+        valbkgasometria: ['', [Validators.required]],
+        bkelectrolitros: ['', [Validators.required]],
+        valbkelectrolitros: ['', [Validators.required]],
+        bkuroanalisis: ['', [Validators.required]],
+        valbkuroanalisis: ['', [Validators.required]],
+
+        bkmicrobiologia: ['', [Validators.required]],
+        valbkmicrobiologia: ['', [Validators.required]],
+       
+      }),
       observacion: ['', [Validators.required]],
-      licenciaEquiposHematologicos: this.fb.array([])      
-      })
+      licenciaEquiposHematologicos: this.fb.array([])
+    })
 
 
 
-  
+
   }
 
-  agregarEquipo(): void {
-    const equiposArray = this.RegistroForm.get('equipoprincipal') as FormArray;
-    equiposArray.push(this.crearEquipoFormGroup());
-  }
 
-  crearEquipoFormGroup(): FormGroup {
-    return this.fb.group({
-      select: ['NO APLICA', Validators.required],
-      input: ['', Validators.required]
-    });
-  }
- 
+
   guardarRegistro() {
-    if (this.RegistroForm.invalid) {
+   /*  if (this.RegistroForm.invalid) {
       return Object.values(this.RegistroForm.controls).forEach(control => {
         control.markAsTouched();
-        console.log(control)
+       console.log(control)
       })
-    }
+    } */
+    console.log(`json `, this.RegistroForm.value)
+this.registroServices.getRegistro(this.RegistroForm.value)
+.subscribe((res:any)=>{
+
+})
+
   }
+  onAreasChange(e: any) {
+    const area = this.RegistroForm.get('areas') as FormArray;
 
-  onCheckboxChange(e:any){
-   
-   const pruebasArray = this.RegistroForm.get('licenciaEquiposHematologicos') as FormArray;
-  
-  const valorinput= e.target.value;
-  const checkbox = e.target;
+    const areas = e.target.value;
+    const checkboxArea = e.target;
 
- 
-if (checkbox.checked) {
-  pruebasArray.push(this.fb.group({
-    valorinput
-  }));
-} else {
-  const index = pruebasArray.controls.findIndex(x => x.value === valorinput);
-  console.log(index)
-  pruebasArray.removeAt(index);
-}
+
+    if (checkboxArea.checked) {
+      area.push(this.fb.group({
+        areas
+      }));
+    } else {
+      area.controls.findIndex(z => console.log(`control checkbox`, z.value.areas))
+      const indexArea = area.controls.findIndex(z => z.value.areas === areas);
+      console.log(`area eliminada`, indexArea)
+      area.removeAt(indexArea);
+    }
+
+
+
+  }
+  onCheckboxChange(e: any) {
+
+    const pruebasArray = this.RegistroForm.get('licenciaEquiposHematologicos') as FormArray;
+
+    const valorinput = e.target.value;
+    const checkbox = e.target;
+
+
+    if (checkbox.checked) {
+      pruebasArray.push(this.fb.group({
+        valorinput
+      }));
+    } else {
+      pruebasArray.controls.findIndex(y => console.log(y.value.valorinput))
+      const index = pruebasArray.controls.findIndex(x => x.value.valorinput === valorinput);
+
+      pruebasArray.removeAt(index);
+    }
   }
 
 }

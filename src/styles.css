@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 * {
-       /* outline: 3px solid red;   */
+ /*    outline: 3px solid red; */
 
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 0.9rem;
@@ -12,3 +12,36 @@ body {
     margin: 20px;
 
 }
+.title_index{
+    padding: 10px;
+    text-align: center;
+}
+.labelcheck {
+
+    margin: 0px 10px;
+}
+
+.lista {
+    height: 65vh ;
+    padding: 10px ;
+  /*   margin-top: 10px; */
+  margin: 10px;
+    left: 0px;
+
+
+}
+
+.lista_item {
+
+    list-style: none;
+padding: 12px;
+margin-bottom: 15px;
+}
+
+.card-row{
+ height: 80vh;
+}
+
+.card-row2{
+   height: 73vh;
+   }

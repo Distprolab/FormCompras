@@ -1,568 +1,722 @@
-<h1 class="title_index">Registros de procesos</h1>
-<form action="" autocomplete="off" [formGroup]="RegistroForm" novalidate (ngSubmit)="guardarRegistro()"
-  id="RegistroForm">
+<div class="container-fluid">
+
+  <h1 class="title_index">Registros de procesos</h1>
+  <form action="" autocomplete="off" [formGroup]="RegistroForm" novalidate (ngSubmit)="guardarRegistro()"
+    id="RegistroForm">
 
 
 
 
 
-  <div class="col-md-12">
+    <div class="col-md-12">
 
-    <div class="card">
+      <div class="card">
 
-      <div class="card-body">
-
-        <div class="col-md-12">
-          <div class="form-group">
-            <label for="">INSTITUCION</label>
-            <input type="text" class="form-control" formControlName="institucion" [class.is-invalid]="institucion"
-              placeholder="Ingrese nombre de la institucion">
-            <small *ngIf="institucion" class="text-danger">Campo obligatorio </small>
-
-          </div>
-
-        </div>
-
-
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group ">
-              <label for="">CODIGO DE PROCESO</label>
-
-              <input type="text" class="form-control" placeholder="Ingrese codigos de procesos" formControlName="codigo"
-                [class.is-invalid]="codigo">
-              <small *ngIf="codigo" class="text-danger">Campo obligatorio </small>
+        <div class="card-body">
+          <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="">INSTITUCION</label>
+              <input type="text" class="form-control" formControlName="institucion" [class.is-invalid]="institucion"
+                placeholder="Ingrese nombre de la institucion">
+              <small *ngIf="institucion" class="text-danger">Campo obligatorio </small>
 
             </div>
-
+          </div>
           </div>
 
 
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="">LINK DE PROCESO</label>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">CODIGO DE PROCESO</label>
 
-              <input type="text" class="form-control" placeholder="Ingrese el link de proceso"
-                formControlName="linkproceso" [class.is-invalid]="linkproceso">
-              <small *ngIf="codigo" class="text-danger">Campo obligatorio </small>
-            </div>
+                <input type="text" class="form-control" placeholder="Ingrese codigos de procesos"
+                  formControlName="codigo" [class.is-invalid]="codigo">
+                <small *ngIf="codigo" class="text-danger">Campo obligatorio </small>
 
-          </div>
-        </div>
-
-
-        <div class="row">
-          <div class="col-md-3">
-            <div class="form-group">
-              <label for="">TIEMPO DE CONSUMO</label>
-
-              <input type="text" class="form-control" placeholder="Ingrese tiempo de consumo"
-                formControlName="tiempoconsumo" [class.is-invalid]="tiempoconsumo">
-              <small *ngIf="codigo" class="text-danger">Campo obligatorio </small>
-            </div>
-
-          </div>
-
-          <div class="col-md-3">
-            <div class="form-group">
-              <label for="">DETER. EFECTIVAS</label>
-
-              <input type="text" class="form-control" placeholder="Ingrese determinaciones "
-                formControlName="determinacion" [class.is-invalid]="determinacion">
-              <small *ngIf="codigo" class="text-danger">Campo obligatorio </small>
-            </div>
-
-          </div>
-
-          <div class="col-md-3">
-            <div class="form-group">
-              <label for="">PRESUPUESTO</label>
-
-              <input type="text" class="form-control" placeholder="Ingrese presupuesto " formControlName="presupuesto"
-                [class.is-invalid]="presupuesto">
-              <small *ngIf="codigo" class="text-danger">Campo obligatorio </small>
-            </div>
-
-          </div>
-
-          <div class="col-md-3">
-            <div class="form-group">
-              <label for="">ENTREGA CARPETA</label>
-
-              <input type="text" class="form-control" placeholder="Ingrese  carpeta " formControlName="entregacarpeta"
-                [class.is-invalid]="entregacarpeta">
-              <small *ngIf="codigo" class="text-danger">Campo obligatorio </small>
-            </div>
-          </div>
-        </div>
-
-
-
-      </div>
-    </div>
-
-
-    <div class="card">
-      <div class="card-body">
-        <h5 class="text_areas">AREAS:</h5>
-        <div class="row">
-          <div class="col-md-2">
-            <div class="form-group">
-              <div class="custom-control custom-checkbox">
-                <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
-                <label for="customCheckbox1" class="custom-control-label">QUIMICA</label>
               </div>
-            </div>
-          </div>
 
-          <div class="col-md-2">
-            <div class="form-group">
-              <div class="custom-control custom-checkbox">
-                <input class="custom-control-input" type="checkbox" id="customCheckbox2">
-                <label for="customCheckbox2" class="custom-control-label">COAGULACION</label>
+            </div>
+
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">LINK DE PROCESO</label>
+
+                <input type="text" class="form-control" placeholder="Ingrese el link de proceso"
+                  formControlName="linkproceso" [class.is-invalid]="linkproceso">
+                <small *ngIf="codigo" class="text-danger">Campo obligatorio </small>
               </div>
-            </div>
-          </div>
 
-          <div class="col-md-2">
-            <div class="form-group">
-              <div class="custom-control custom-checkbox">
-                <input class="custom-control-input" type="checkbox" id="customCheckbox3" value="option1">
-                <label for="customCheckbox3" class="custom-control-label">INMUNOLOGIA</label>
-              </div>
             </div>
           </div>
 
 
-          <div class="col-md-2">
-            <div class="form-group">
-              <div class="custom-control custom-checkbox">
-                <input class="custom-control-input" type="checkbox" id="customCheckbox4" value="option1">
-                <label for="customCheckbox4" class="custom-control-label">ELECTROLITROS</label>
-              </div>
-            </div>
-
-          </div>
-
-
-
-
-
-
-
-          <div class="col-md-2">
-            <div class="form-group">
-              <div class="custom-control custom-checkbox">
-                <input class="custom-control-input" type="checkbox" id="customCheckbox5" value="option1">
-                <label for="customCheckbox5" class="custom-control-label">UROANALISIS</label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2">
-            <div class="form-group">
-              <div class="custom-control custom-checkbox">
-                <input class="custom-control-input" type="checkbox" id="customCheckbox6" value="option1">
-                <label for="customCheckbox6" class="custom-control-label">HEMATOLOGIA</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-2">
-            <div class="form-group">
-              <div class="custom-control custom-checkbox">
-                <input class="custom-control-input" type="checkbox" id="customCheckbox7" value="option1">
-                <label for="customCheckbox7" class="custom-control-label">GASOMETRIA</label>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-md-2">
-            <div class="form-group">
-              <div class="custom-control custom-checkbox">
-                <input class="custom-control-input" type="checkbox" id="customCheckbox8" value="option1">
-                <label for="customCheckbox8" class="custom-control-label">INSUMOS</label>
-              </div>
-            </div>
-
-          </div>
-
-
-          <div class="col-md-2">
-            <div class="form-group">
-              <div class="custom-control custom-checkbox">
-                <input class="custom-control-input" type="checkbox" id="customCheckbox9" value="option1">
-                <label for="customCheckbox9" class="custom-control-label">MICROBIOLOGIA</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-2">
-            <div class="form-group">
-              <div class="custom-control custom-checkbox">
-                <input class="custom-control-input" type="checkbox" id="customCheckbox10" value="option1">
-                <label for="customCheckbox10" class="custom-control-label">PRUEBAS RAPIDAS</label>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!--     <div class="col-md-6">
-        <div class="form-group clearfix">
-          <div class="icheck-primary d-inline">
-            <label for="">QUIMICA</label>
-
-            <input type="checkbox" class="check_item">
-          </div>
-       </div>
-          <div class="form-check">
-            <label for="">COAGULACION</label>
-
-            <input type="checkbox" class="check_item">
-          </div>
-          <div class="form-check">
-            <label for="">INMUNOLOGIA</label>
-
-            <input type="checkbox" class="check_item">
-          </div>
-          <div class="form-check">
-            <label for="">ELECTROLITROS</label>
-
-            <input type="checkbox" class="check_item">
-          </div>
-          <div class="form-check">
-            <label for="">UROANALISIS</label>
-
-            <input type="checkbox" class="check_item">
-          </div>
-          <div class="form-check">
-            <label for="">HEMATOLOGIA</label>
-
-            <input type="checkbox" class="check_item">
-          </div>
-          <div class="form-check">
-            <label for="">GASOMETRIA</label>
-
-            <input type="checkbox" class="check_item">
-          </div>
-          <div class="form-check">
-            <label for="">INSUMOS</label>
-
-            <input type="checkbox" class="check_item">
-          </div>
-          <div class="form-check">
-            <label for="">MICROBIOLOGIA </label>
-
-            <input type="checkbox" class="check_item">
-          </div>
-          <div class="form-check">
-            <label for="">PRUEBAS RAPIDAS</label>
-
-            <input type="checkbox" class="check_item">
-          </div>
-        </div> -->
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-body">
-
-        <h5 class="text_areas2">TERCERA OPINION </h5>
-        <div class="form-group">
-          <div class="custom-control custom-radio">
-            <input class="custom-control-input" type="radio" id="customRadio1" value="si"
-              formControlName="terceraopcion">
-            <label for="customRadio1" class="custom-control-label">Si</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input class="custom-control-input" type="radio" id="customRadio2" value="no"
-              formControlName="terceraopcion">
-            <label for="customRadio2" class="custom-control-label">No</label>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="card">
-      <div class="card-body">
-        <div class="text-opcion">
-          <h5 class="text_areas2">ESCOJA LA OPCION DEL SISTEMAS</h5>
           <div class="row">
             <div class="col-md-3">
-              <input type="radio" id="si" value="Infinty" formControlName="sistema">
-              <label for="si">Infinty</label>
-            </div>
-            <div class="col-md-3">
-              <input type="radio" id="no" value="Siglab" formControlName="sistema">
-              <label for="no">Siglab</label>
+              <div class="form-group">
+                <label for="">TIEMPO DE CONSUMO</label>
+
+                <input type="text" class="form-control" placeholder="Ingrese tiempo de consumo"
+                  formControlName="tiempoconsumo" [class.is-invalid]="tiempoconsumo">
+                <small *ngIf="codigo" class="text-danger">Campo obligatorio </small>
+              </div>
+
             </div>
 
             <div class="col-md-3">
-              <input type="radio" id="no" value="Orión" formControlName="sistema">
-              <label for="no">Orión</label>
+              <div class="form-group">
+                <label for="">DETER. EFECTIVAS</label>
+
+                <input type="text" class="form-control" placeholder="Ingrese determinaciones "
+                  formControlName="determinacion" [class.is-invalid]="determinacion">
+                <small *ngIf="codigo" class="text-danger">Campo obligatorio </small>
+              </div>
+
             </div>
+
             <div class="col-md-3">
-              <input type="radio" id="no" value="Interfaz de equipo" formControlName="sistema">
-              <label for="no">Interfaz de equipo</label>
+              <div class="form-group">
+                <label for="">PRESUPUESTO</label>
+
+                <input type="text" class="form-control" placeholder="Ingrese presupuesto " formControlName="presupuesto"
+                  [class.is-invalid]="presupuesto">
+                <small *ngIf="codigo" class="text-danger">Campo obligatorio </small>
+              </div>
+
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="">ENTREGA CARPETA</label>
+
+                <input type="text" class="form-control" placeholder="Ingrese  carpeta " formControlName="entregacarpeta"
+                  [class.is-invalid]="entregacarpeta">
+                <small *ngIf="codigo" class="text-danger">Campo obligatorio </small>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-header">
+          <h3 class="card-title">AREAS:</h3>
+
+          <div class="card-body">
+            <div class="row">
+
+
+
+              <div class="col-md-3" *ngFor="let equipo of equipos">
+                <input type="checkbox" class="check_item" [value]="equipo.value" (change)="onAreasChange($event)">
+                <label class="labelcheck" for="si">{{equipo.value}}</label>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">TERCERA OPINION </h3>
+
+
+          <div class="card-body">
+
+
+            <div class="row">
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="radio" value="si" formControlName="terceraopcion" >
+                  <label class="labelcheck" for="">Si</label>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="radio" value="no" formControlName="terceraopcion" >
+                  <label class="labelcheck" for="">No</label>
+                </div>
+              </div>
+
+              <small *ngIf="terceraopcion" class="text-danger">Campo obligatorio </small>
+
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+      <div class="card">
+        <div class="card-header">
+
+
+          <h3 class="card-title">ESCOJA LA OPCION DEL SISTEMAS</h3>
+
+          <div class="card-body">
+            <div class="row">
+
+
+              <div class="col-md-3">
+                <div class="form-group">
+                  <input type="radio" value="Infinty" formControlName="sistema">
+                  <label class="labelcheck" for="">Infinty</label>
+                </div>
+
+              </div>
+
+
+              <div class="col-md-3">
+                <div class="form-group">
+                  <input type="radio" value="Siglab" formControlName="sistema">
+                  <label class="labelcheck" for="">Siglab</label>
+                </div>
+
+              </div>
+
+              <div class="col-md-3">
+                <div class="form-group">
+                  <input type="radio" value="Orión" formControlName="sistema">
+                  <label class="labelcheck" for="">Orión</label>
+                </div>
+
+              </div>
+
+              <div class="col-md-3">
+                <div class="form-group">
+                  <input type="radio" value="Interfaz de equipo" formControlName="sistema">
+                  <label class="labelcheck" for="">Interfaz de equipo</label>
+                </div>
+              </div>
+
+
+              <small *ngIf="sistema" class="text-danger">campo obligatorio</small>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
 
 
 
 
 
-    <div class="card">
-      <div class="card-body">
-        <div class="row">
-
-          <div class="col-sm-4">
-            <h4 class="text_title">EQUIPOS</h4>
-            <ul class="lista">
-              <li class="lista_item">QUIMICA</li>
-              <li class="lista_item">INMUNOLOGIA</li>
-              <li class="lista_item">HEMATOLOGIA</li>
-              <li class="lista_item">COAGULACION</li>
-              <li class="lista_item">GASOMETRIA</li>
-              <li class="lista_item">ELECTROLITOS</li>
-              <li class="lista_item">UROANALISIS</li>
-              <li class="lista_item">MICROBIOLOGIA</li>
-
-              <li class="lista_item">POC</li>
-
-            </ul>
-
-          </div>
 
 
-          <div class="col-md-4" >
-
-
+      <div class="card card-row">
+        <div class="card-header card-row">
+          <h3 class="card-title">EQUIPOS</h3>
+          <div class="card-body card-row2">
             <div class="row">
 
-              <div class="col-md-6">
-                <div class="form-group">
+              <div class="col-md-4">
 
-                  <select class="custom-select" formControlName="select">
-                    <option>NO APLICA</option>
-                    <option>COBAS C111</option>
-                    <option>COBAS C311</option>
-                    <option>COBAS PURE <302>
-                    </option>
-                    <option>COBAS 6000 C501 MODULE</option>
-                    <option>COBAS PRO<503> ISE</option>
-                  </select>
+                <ul class="lista">
+                  <li class="lista_item">QUIMICA</li>
+                  <li class="lista_item">INMUNOLOGIA</li>
+                  <li class="lista_item">HEMATOLOGIA</li>
+                  <li class="lista_item">COAGULACION</li>
+                  <li class="lista_item">GASOMETRIA</li>
+                  <li class="lista_item">ELECTROLITOS</li>
+                  <li class="lista_item">UROANALISIS</li>
+                  <li class="lista_item">MICROBIOLOGIA</li>
+
+                  <li class="lista_item">POC</li>
+
+                </ul>
+
+              </div>
+
+
+              <div class="col-md-4" formGroupName="equipoprincipal">
+
+
+                <div class="row">
+
+                  <div class="col-md-8">
+                    <div class="form-group">
+
+                      <select class="custom-select" formControlName="eqquimica"  >
+                        <option>QUIMICA</option>
+                        <option>COBAS C111</option>
+                        <option>COBAS C311</option>
+                        <option>COBAS PURE <302>
+                        </option>
+                        <option>COBAS 6000 C501 MODULE</option>
+                        <option>COBAS PRO<503> ISE</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="number" class="form-control" formControlName="valquimica">
+                  </div>
+
+
+
+
+
                 </div>
 
-              </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
 
-              <div class="col-md-6">
-                <input type="number" class="form-control" fformControlName="input">
-              </div>
+                      <select class="custom-select" formControlName="eqinmunologia">
+                        <option>INMUNO</option>
+                        <option>COBAS E411 RACK</option>
+                        <option>COBAS E411 DISK</option>
+                        <option>COBAS PURE <402>
+                        </option>
+                        <option>COBAS 6000 E601 MODULE</option>
+                        <option>COBAS 8000- COBAS E602 MODULE </option>
+                        <option>COBAS 8000 <801>
+                        </option>
+                        <option>MAGLUMI X3</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="number" class="form-control" formControlName="valinmunologia">
+                  </div>
 
 
 
 
 
-            </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
 
-            <div class="row">
-              <div class="col-md-6" >
-                <div class="form-group">
+                      <select class="custom-select" formControlName="eqhematologia">
+                        <option>NO APLICA</option>
+                        <option>XNL 350</option>
+                        <option>XNL 450</option>
+                        <option>XP 300</option>
+                        <option>XN-1000</option>
+                        <option>XN-2000</option>
+                        <option>XN-3000</option>
+                        <option>XN-1500</option>
+                      </select>
+                    </div>
 
-                  <select class="custom-select">
-                    <option>NO APLICA</option>
-                    <option>COBAS E411 RACK</option>
-                    <option>COBAS E411 DISK</option>
-                    <option>COBAS PURE <402>
-                    </option>
-                    <option>COBAS 6000 E601 MODULE</option>
-                    <option>COBAS 8000- COBAS E602 MODULE </option>
-                    <option>COBAS 8000 <801>
-                    </option>
-                    <option>MAGLUMI X3</option>
-                  </select>
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="number" class="form-control" formControlName="valhematologia">
+                  </div>
+
+
+
+
+
                 </div>
 
-              </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
 
-              <div class="col-md-6">
-                <input type="number" class="form-control">
-              </div>
+                      <select class="custom-select" formControlName="eqcoagulacion">
+                        <option>NO APLICA</option>
+                        <option>COBAS T411</option>
+                        <option>ALC TOP</option>
+                        <option>ACL ELITE</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="number" class="form-control" formControlName="valcoagulacion">
+                  </div>
 
 
 
 
 
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
 
-                  <select class="custom-select">
-                    <option>NO APLICA</option>
-                    <option>XNL 350</option>
-                    <option>XNL 450</option>
-                    <option>XP 300</option>
-                    <option>XN-1000</option>
-                    <option>XN-2000</option>
-                    <option>XN-3000</option>
-                    <option>XN-1500</option>
-                  </select>
+                      <select class="custom-select" formControlName="eqgasometria">
+                        <option>NO APLICA</option>
+                        <option>COBAS B123 POC SYSTEM</option>
+
+                        <option>COBAS B221</option>
+                        <option>GEM PREMIER </option>
+                        <option>I STAT</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="number" class="form-control" formControlName="valgasometria">
+                  </div>
+
+
+
+
+
                 </div>
 
-              </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
 
-              <div class="col-md-6">
-                <input type="number" class="form-control">
-              </div>
+                      <select class="custom-select" formControlName="eqelectrolitros">
+                        <option>NO APLICA</option>
+                        <option>AVL 9180</option>
+                        <option>COBAS C311</option>
+                        <option>COBAS C501 MODULE ISE</option>
+                        <option>COBAS PRO <503>ISE</option>
+                        <option>ISTAT</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="number" class="form-control" formControlName="valelectrolitros">
+                  </div>
 
 
 
 
 
-            </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
 
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
+                      <select class="custom-select" formControlName="equroanalisis">
+                        <option>NO APLICA</option>
+                        <option>COBAS 6500</option>
+                        <option>COBAS U701</option>
+                        <option>COBAS U601</option>
+                        <option>KU-2800</option>
+                      </select>
+                    </div>
 
-                  <select class="custom-select">
-                    <option>NO APLICA</option>
-                    <option>COBAS T411</option>
-                    <option>ALC TOP</option>
-                    <option>ACL ELITE</option>
-                  </select>
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="number" class="form-control" formControlName="valuroanalisis">
+                  </div>
+
+
+
+
+
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
+
+                      <select class="custom-select" formControlName="eqmicrobiologia">
+                        <option>NO APLICA</option>
+                        <option>COBAS 4800</option>
+                        <option>COBAS Z480</option>
+                        <option>LIGHTCYCLER 480 II</option>
+                        <option>96</option>
+                        <option>LIGHTCYCLER 2.0 INSTRUMENT</option>
+                        <option>MAGNA PURE COMPACT</option>
+                        <option>COBAS LIAT SYSTEM</option>
+                        <option>MAGNAPURE 24</option>
+                        <option>MAGNA PURE 96 INSTRUMENT</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="number" class="form-control" formControlName="valmicrobiologia">
+                  </div>
+
+
+
+
+
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
+
+                      <select class="custom-select" formControlName="eqpoc">
+                        <option>NO APLICA</option>
+                        <option>COBAS B 101 INSTRUMENT</option>
+                        <option>COBAS H 232 KIT (NO SCANNER) </option>
+                        <option>COBAS H 232 KIT (SCANNER)</option>
+                        <option>COAGUCHEK XS PRO KIT INTERNATI</option>
+                        <option>COAGUCHEK XS KIT (HU/EL/ES/PT)</option>
+                        <option>ACCUNTREND PLUS KIT MG/DL</option>
+                        <option>ACCU-CHECK INFORM II METER KIT + R</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="number" class="form-control" formControlName="valpoc">
+                  </div>
+
+
+
+
+
                 </div>
 
+
+                <div>
+
+                </div>
               </div>
 
-              <div class="col-md-6">
-                <input type="number" class="form-control">
-              </div>
+
+              <div class="col-md-4" formGroupName="equipobackup">
+
+
+                <div class="row">
+
+                  <div class="col-md-8">
+                    <div class="form-group">
+
+                      <select class="custom-select" formControlName="bkquimica">
+                        <option>NO APLICA</option>
+                        <option>COBAS C111</option>
+                        <option>COBAS C311</option>
+                        <option>COBAS PURE <302>
+                        </option>
+                        <option>COBAS 6000 C501 MODULE</option>
+                        <option>COBAS PRO<503> ISE</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="number" class="form-control" formControlName="valbkquimica">
+                  </div>
 
 
 
 
 
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-
-                  <select class="custom-select">
-                    <option>NO APLICA</option>
-                    <option>COBAS B123 POC SYSTEM</option>
-
-                    <option>COBAS B221</option>
-                    <option>GEM PREMIER </option>
-                    <option>I STAT</option>
-                  </select>
                 </div>
 
-              </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
 
-              <div class="col-md-6">
-                <input type="number" class="form-control">
-              </div>
+                      <select class="custom-select" formControlName="bkinmunologia">
+                        <option>NO APLICA</option>
+                        <option>COBAS E411 RACK</option>
+                        <option>COBAS E411 DISK</option>
+                        <option>COBAS PURE <402>
+                        </option>
+                        <option>COBAS 6000 E601 MODULE</option>
+                        <option>COBAS 8000- COBAS E602 MODULE </option>
+                        <option>COBAS 8000 <801>
+                        </option>
+                        <option>MAGLUMI X3</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="number" class="form-control" formControlName="valbkinmunologia">
+                  </div>
 
 
 
 
 
-            </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
 
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
+                      <select class="custom-select" formControlName="bkhematologia">
+                        <option>NO APLICA</option>
+                        <option>XNL 350</option>
+                        <option>XNL 450</option>
+                        <option>XP 300</option>
+                        <option>XN-1000</option>
+                        <option>XN-2000</option>
+                        <option>XN-3000</option>
+                        <option>XN-1500</option>
+                      </select>
+                    </div>
 
-                  <select class="custom-select">
-                    <option>NO APLICA</option>
-                    <option>AVL 9180</option>
-                    <option>COBAS C311</option>
-                    <option>COBAS C501 MODULE ISE</option>
-                    <option>COBAS PRO <503>ISE</option>
-                    <option>ISTAT</option>
-                  </select>
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="number" class="form-control" formControlName="valbkhematologia">
+                  </div>
+
+
+
+
+
                 </div>
 
-              </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
 
-              <div class="col-md-6">
-                <input type="number" class="form-control">
-              </div>
+                      <select class="custom-select" formControlName="bkcoagulacion">
+                        <option>NO APLICA</option>
+                        <option>COBAS T411</option>
+                        <option>ALC TOP</option>
+                        <option>ACL ELITE</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="number" class="form-control" formControlName="valbkcoagulacion">
+                  </div>
 
 
 
 
 
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
 
-                  <select class="custom-select">
-                    <option>NO APLICA</option>
-                    <option>COBAS 6500</option>
-                    <option>COBAS U701</option>
-                    <option>COBAS U601</option>
-                    <option>KU-2800</option>
-                  </select>
+                      <select class="custom-select" formControlName="bkgasometria">
+                        <option>NO APLICA</option>
+                        <option>COBAS B123 POC SYSTEM</option>
+
+                        <option>COBAS B221</option>
+                        <option>GEM PREMIER </option>
+                        <option>I STAT</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="number" class="form-control" formControlName="valbkgasometria">
+                  </div>
+
+
+
+
+
                 </div>
 
-              </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
 
-              <div class="col-md-6">
-                <input type="number" class="form-control">
-              </div>
+                      <select class="custom-select" formControlName="bkelectrolitros">
+                        <option>NO APLICA</option>
+                        <option>AVL 9180</option>
+                        <option>COBAS C311</option>
+                        <option>COBAS C501 MODULE ISE</option>
+                        <option>COBAS PRO <503>ISE</option>
+                        <option>ISTAT</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="number" class="form-control" formControlName="valbkelectrolitros">
+                  </div>
 
 
 
 
 
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-
-                  <select class="custom-select">
-                    <option>NO APLICA</option>
-                    <option>COBAS 4800</option>
-                    <option>COBAS Z480</option>
-                    <option>LIGHTCYCLER 480 II</option>
-                    <option>96</option>
-                    <option>LIGHTCYCLER 2.0 INSTRUMENT</option>
-                    <option>MAGNA PURE COMPACT</option>
-                    <option>COBAS LIAT SYSTEM</option>
-                    <option>MAGNAPURE 24</option>
-                    <option>MAGNA PURE 96 INSTRUMENT</option>
-                  </select>
                 </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
 
-              </div>
+                      <select class="custom-select" formControlName="bkuroanalisis">
+                        <option>NO APLICA</option>
+                        <option>COBAS 6500</option>
+                        <option>COBAS U701</option>
+                        <option>COBAS U601</option>
+                        <option>KU-2800</option>
+                      </select>
+                    </div>
 
-              <div class="col-md-6">
-                <input type="number" class="form-control">
-              </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="number" class="form-control" formControlName="valbkuroanalisis">
+                  </div>
 
 
 
 
 
-            </div>
-            <div class="row">
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
+
+                      <select class="custom-select" formControlName="bkmicrobiologia">
+                        <option>NO APLICA</option>
+                        <option>COBAS 4800</option>
+                        <option>COBAS Z480</option>
+                        <option>LIGHTCYCLER 480 II</option>
+                        <option>96</option>
+                        <option>LIGHTCYCLER 2.0 INSTRUMENT</option>
+                        <option>MAGNA PURE COMPACT</option>
+                        <option>COBAS LIAT SYSTEM</option>
+                        <option>MAGNAPURE 24</option>
+                        <option>MAGNA PURE 96 INSTRUMENT</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4">
+                    <input type="number" class="form-control" formControlName="valbkmicrobiologia">
+                  </div>
+
+
+
+
+
+                </div>
+                <!--  <div class="row">
               <div class="col-md-8">
                 <div class="form-group">
 
-                  <select class="custom-select">
+                  <select class="custom-select" formControlName="bkpoc">
                     <option>NO APLICA</option>
                     <option>COBAS B 101 INSTRUMENT</option>
                     <option>COBAS H 232 KIT (NO SCANNER) </option>
@@ -577,333 +731,103 @@
               </div>
 
               <div class="col-md-4">
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" formControlName="valbkpoc">
               </div>
 
 
 
 
 
+            </div> -->
+
+
+                <div>
+
+                </div>
+              </div>
+
+
             </div>
 
 
-            <div>
-
-            </div>
           </div>
 
 
-          <div class="col-md-4">
 
 
-            <div class="row">
 
-              <div class="col-md-6">
-                <div class="form-group">
 
-                  <select class="custom-select">
-                    <option>NO APLICA</option>
-                    <option>COBAS C111</option>
-                    <option>COBAS C311</option>
-                    <option>COBAS PURE <302>
-                    </option>
-                    <option>COBAS 6000 C501 MODULE</option>
-                    <option>COBAS PRO<503> ISE</option>
-                  </select>
-                </div>
 
-              </div>
 
-              <div class="col-md-6">
-                <input type="number" class="form-control">
-              </div>
 
 
 
 
 
-            </div>
-
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-
-                  <select class="custom-select">
-                    <option>NO APLICA</option>
-                    <option>COBAS E411 RACK</option>
-                    <option>COBAS E411 DISK</option>
-                    <option>COBAS PURE <402>
-                    </option>
-                    <option>COBAS 6000 E601 MODULE</option>
-                    <option>COBAS 8000- COBAS E602 MODULE </option>
-                    <option>COBAS 8000 <801>
-                    </option>
-                    <option>MAGLUMI X3</option>
-                  </select>
-                </div>
-
-              </div>
-
-              <div class="col-md-6">
-                <input type="number" class="form-control">
-              </div>
-
-
-
-
-
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-
-                  <select class="custom-select">
-                    <option>NO APLICA</option>
-                    <option>XNL 350</option>
-                    <option>XNL 450</option>
-                    <option>XP 300</option>
-                    <option>XN-1000</option>
-                    <option>XN-2000</option>
-                    <option>XN-3000</option>
-                    <option>XN-1500</option>
-                  </select>
-                </div>
-
-              </div>
-
-              <div class="col-md-6">
-                <input type="number" class="form-control">
-              </div>
-
-
-
-
-
-            </div>
-
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-
-                  <select class="custom-select">
-                    <option>NO APLICA</option>
-                    <option>COBAS T411</option>
-                    <option>ALC TOP</option>
-                    <option>ACL ELITE</option>
-                  </select>
-                </div>
-
-              </div>
-
-              <div class="col-md-6">
-                <input type="number" class="form-control">
-              </div>
-
-
-
-
-
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-
-                  <select class="custom-select">
-                    <option>NO APLICA</option>
-                    <option>COBAS B123 POC SYSTEM</option>
-
-                    <option>COBAS B221</option>
-                    <option>GEM PREMIER </option>
-                    <option>I STAT</option>
-                  </select>
-                </div>
-
-              </div>
-
-              <div class="col-md-6">
-                <input type="number" class="form-control">
-              </div>
-
-
-
-
-
-            </div>
-
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-
-                  <select class="custom-select">
-                    <option>NO APLICA</option>
-                    <option>AVL 9180</option>
-                    <option>COBAS C311</option>
-                    <option>COBAS C501 MODULE ISE</option>
-                    <option>COBAS PRO <503>ISE</option>
-                    <option>ISTAT</option>
-                  </select>
-                </div>
-
-              </div>
-
-              <div class="col-md-6">
-                <input type="number" class="form-control">
-              </div>
-
-
-
-
-
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-
-                  <select class="custom-select">
-                    <option>NO APLICA</option>
-                    <option>COBAS 6500</option>
-                    <option>COBAS U701</option>
-                    <option>COBAS U601</option>
-                    <option>KU-2800</option>
-                  </select>
-                </div>
-
-              </div>
-
-              <div class="col-md-6">
-                <input type="number" class="form-control">
-              </div>
-
-
-
-
-
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-
-                  <select class="custom-select">
-                    <option>NO APLICA</option>
-                    <option>COBAS 4800</option>
-                    <option>COBAS Z480</option>
-                    <option>LIGHTCYCLER 480 II</option>
-                    <option>96</option>
-                    <option>LIGHTCYCLER 2.0 INSTRUMENT</option>
-                    <option>MAGNA PURE COMPACT</option>
-                    <option>COBAS LIAT SYSTEM</option>
-                    <option>MAGNAPURE 24</option>
-                    <option>MAGNA PURE 96 INSTRUMENT</option>
-                  </select>
-                </div>
-
-              </div>
-
-              <div class="col-md-6">
-                <input type="number" class="form-control">
-              </div>
-
-
-
-
-
-            </div>
-            <div class="row">
-              <div class="col-md-8">
-                <div class="form-group">
-
-                  <select class="custom-select">
-                    <option>NO APLICA</option>
-                    <option>COBAS B 101 INSTRUMENT</option>
-                    <option>COBAS H 232 KIT (NO SCANNER) </option>
-                    <option>COBAS H 232 KIT (SCANNER)</option>
-                    <option>COAGUCHEK XS PRO KIT INTERNATI</option>
-                    <option>COAGUCHEK XS KIT (HU/EL/ES/PT)</option>
-                    <option>ACCUNTREND PLUS KIT MG/DL</option>
-                    <option>ACCU-CHECK INFORM II METER KIT + R</option>
-                  </select>
-                </div>
-
-              </div>
-
-              <div class="col-md-4">
-                <input type="number" class="form-control">
-              </div>
-
-
-
-
-
-            </div>
-
-
-            <div>
-
-            </div>
-          </div>
 
 
 
         </div>
-
-
-        <!--    <div class="col-md-4">
-          <h5>bachuop</h5>
-        </div> -->
-
-
       </div>
 
+      <div class="card">
+
+        <div class="card-header">
+
+          <h3 class="card-title">ELIGE LA LICENCIA EQUIPO HEMATOLOGICO</h3>
 
 
+          <div class="card-body">
 
 
-
-
-
-
-
-    </div>
-
-
-    <div class="card">
-      <div class="card-body">
-
-        <h5 class="text_areas2">ELIGE LA LICENCIA EQUIPO HEMATOLOGICO</h5>
-
-        <div class="row">
-          <div class="col-md-4" *ngFor="let ho of licencia">
-            <input type="checkbox" class="check_item" [value]="ho.value" (change)="onCheckboxChange($event)">
-            <label class="" for="si">{{ho.value}}</label>
-          </div>
-
-
-        </div>
-      </div>
-    </div>
-
-
-    <div class="card">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-sm-12">
-
-            <div class="form-group">
-              <label>Textarea</label>
-              <textarea class="form-control" rows="4" formControlName="observacion" placeholder="Enter ..."></textarea>
+            <div class="row">
+              <div class="col-md-4" *ngFor="let ho of licencia">
+                <input type="checkbox" class="check_item" [value]="ho.value" (change)="onCheckboxChange($event)">
+                <label class="labelcheck" for="si">{{ho.value}}</label>
+              </div>
+             
             </div>
           </div>
         </div>
       </div>
+
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title" for="">Textarea</h3>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+
+                <div class="form-group">
+
+                  <textarea class="form-control" rows="10" formControlName="observacion"
+                    placeholder="Enter ..."></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-primary">Guardar
+
+        </button>
+
+        <button type="button" class="btn btn-danger">Cancelar
+
+        </button>
+      </div>
     </div>
-  </div>
 
 
 
-</form>
+  </form>
+</div>
 
 
-<hr>
+<!-- <hr>
 <pre>
     Estado del formulario: {{ RegistroForm.valid }}
     <br>
@@ -915,4 +839,4 @@
 
     {{ RegistroForm.value | json }}
 
-    </pre>
+    </pre>  -->

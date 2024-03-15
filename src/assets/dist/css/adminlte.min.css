@@ -641,8 +641,10 @@ pre code {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-right: -7.5px;
-    margin-left: -7.5px
+   /*  margin-right: -7.5px;
+    margin-left: -7.5px */
+    padding: 0.1px;
+    margin: 10px;
 }
 
 .no-gutters {
@@ -1373,7 +1375,8 @@ pre code {
         -webkit-flex: 0 0 25%;
         -ms-flex: 0 0 25%;
         flex: 0 0 25%;
-        max-width: 25%
+        max-width: 25%;
+        padding:10px
     }
 
     .col-md-4 {
@@ -4327,7 +4330,9 @@ input[type=submit].btn-block {
 .input-group-append .btn,
 .input-group-prepend .btn {
     position: relative;
-    z-index: 2
+    z-index: 2;
+    margin:10px;
+
 }
 
 .input-group-append .btn:focus,
@@ -31183,10 +31188,10 @@ html.maximized-card {
 }
 
 .card-title {
-    float: left;
+ /*    float: left; */
     font-size: 1.1rem;
     font-weight: 400;
-    margin: 0
+   /*  margin: 0 */
 }
 
 .card-text {
